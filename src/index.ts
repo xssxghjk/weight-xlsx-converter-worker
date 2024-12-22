@@ -1,10 +1,6 @@
 // @ts-ignore
 import * as XLSX from 'xlsx';
 
-const stringToBlob = (str: string) => {
-	return new Blob([str], { type: 'text/plain' });
-};
-
 async function readXlsFile(file: ArrayBuffer): Promise<any[]> {
 	const workbook = XLSX.read(file, { type: 'array' });
 	const sheetName = workbook.SheetNames[0];
