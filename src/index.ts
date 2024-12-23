@@ -12,9 +12,7 @@ export default {
 	async fetch(request): Promise<Response> {
 		const API_URL = 'https://drive.google.com/uc?export=download&id=1emg8Gvnuznw06z-RN6-QxVUL2cnrOgM4';
 		request = new Request(API_URL, { method: 'get' });
-		console.log(request);
 		let response = await (await fetch(request)).arrayBuffer();
-
 		const data = await readXlsFile(response);
 		return new Response(JSON.stringify(data), {
 			headers: {
